@@ -1,0 +1,71 @@
+name: Update Core Rules JSON
+
+on:
+  push:
+    paths:
+      - "cr.txt"
+      - "tools/parse_core_rules.py"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate core_rules.json
+        run: |
+          python3 tools/parse_core_rules.py \
+            --src cr.txt \
+            --out update/documents/core_rules.json \
+            --doc-id CR \
+            --title "Riftbound Core Rules"
+
+      - name: Update update/manifest.json
+        run: |
+          python3 - << 'PY'
+          import json, os
+          from datetime import date
+          os.makedirs("update", exist_ok=True)
+          os.makedirs("update/documents", exist_ok=True)
+
+          # prova a leggere "Last Updated:" dal cr.txt
+          last = ""
+          with open("cr.txt","r",encoding="utf-8",errors="ignore") as f:
+            for _ in range(50):
+              line = f.readline()
+              if not line: break
+              if "Last Updated:" in line:
+                last = line.split("Last Updated:",1)[1].strip()
+                break
+          if not last:
+            last = date.today().isoformat()
+
+          manifest = {
+            "app_version": last,
+            "documents": [
+              {
+                "id": "CR",
+                "title": "Core Rules",
+                "version": last,
+                "url": "update/documents/core_rules.json"
+              }
+            ]
+          }
+          with open("update/manifest.json","w",encoding="utf-8") as f:
+            json.dump(manifest,f,ensure_ascii=False,indent=2)
+          PY
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add update/manifest.json update/documents/core_rules.json
+          git commit -m "Update Core Rules JSON" || echo "No changes"
+          git push
