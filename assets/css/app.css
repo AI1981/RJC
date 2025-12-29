@@ -1,0 +1,5 @@
+/* assets/css/app.css */
+.rule-text { white-space: pre-wrap; line-height: 1.5; }
+mark.rb-hl { padding: 0 .15em; border-radius: .2em; }
+.card-result { cursor: pointer; }
+.card-result:hover { transform: translateY(-1px); }

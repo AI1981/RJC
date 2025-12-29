@@ -1,0 +1,627 @@
+{
+  "doc_id": "CR",
+  "title": "Core Rules",
+  "lang": "en",
+  "version_label": "draft-import-2025-12-29",
+  "published_date": "2025-12-29",
+  "source_name": "User-provided official extract",
+  "source_url": "",
+  "entries": [
+    {
+      "key": "CR-000",
+      "ref": "000",
+      "heading": "Golden and Silver Rules",
+      "path": ["000", "Golden and Silver Rules"],
+      "text": "Golden and Silver Rules",
+      "tokens_hint": ["golden", "silver", "rules"]
+    },
+    {
+      "key": "CR-001",
+      "ref": "001",
+      "heading": "Golden Rule",
+      "path": ["000", "Golden and Silver Rules", "001", "Golden Rule"],
+      "text": "Card text supersedes rules text. Whenever a card fundamentally contradicts the rules, the card's indication is what is true.",
+      "tokens_hint": ["card", "text", "supersedes", "contradicts"]
+    },
+    {
+      "key": "CR-050",
+      "ref": "050",
+      "heading": "Silver Rule",
+      "path": ["000", "Golden and Silver Rules", "050", "Silver Rule"],
+      "text": "Card text uses different terminology than rules. Card text should be interpreted according to these rules, not as though it were text within these rules.",
+      "tokens_hint": ["terminology", "interpret", "rules"]
+    },
+    {
+      "key": "CR-052",
+      "ref": "052",
+      "heading": "Card means Main Deck card",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "052",
+        "Card means Main Deck card"
+      ],
+      "text": "Card, when written in card effects, is shorthand for \"Main Deck card.\" Runes, legends, and battlefields are not considered cards when executing the abilities and effects of game objects. They are considered cards for the purposes of these rules.",
+      "tokens_hint": ["main deck", "runes", "legends", "battlefields"]
+    },
+    {
+      "key": "CR-053",
+      "ref": "053",
+      "heading": "Cards refer to themselves in the first person",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "053",
+        "Cards refer to themselves in the first person"
+      ],
+      "text": "Cards refer to themselves in the first person.",
+      "tokens_hint": ["first person", "i", "me", "this", "here"]
+    },
+    {
+      "key": "CR-053.1",
+      "ref": "053.1",
+      "heading": "Units and legends use “I/me”",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "053",
+        "Cards refer to themselves in the first person",
+        "053.1",
+        "Units and legends use “I/me”"
+      ],
+      "text": "Units and legends say \"I,\" \"me,\" etc.",
+      "tokens_hint": ["units", "legends", "i", "me"]
+    },
+    {
+      "key": "CR-053.2",
+      "ref": "053.2",
+      "heading": "Gear and spells use “this”",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "053",
+        "Cards refer to themselves in the first person",
+        "053.2",
+        "Gear and spells use “this”"
+      ],
+      "text": "Gear and spells say \"this.\"",
+      "tokens_hint": ["gear", "spells", "this"]
+    },
+    {
+      "key": "CR-053.3",
+      "ref": "053.3",
+      "heading": "Battlefields use “here”",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "053",
+        "Cards refer to themselves in the first person",
+        "053.3",
+        "Battlefields use “here”"
+      ],
+      "text": "Battlefields say \"here.\"",
+      "tokens_hint": ["battlefields", "here"]
+    },
+    {
+      "key": "CR-054",
+      "ref": "054",
+      "heading": "“Can’t beats Can”",
+      "path": ["000", "Golden and Silver Rules", "054", "“Can’t beats Can”"],
+      "text": "“Can’t beats Can”",
+      "tokens_hint": ["can't", "beats", "can"]
+    },
+    {
+      "key": "CR-054.1",
+      "ref": "054.1",
+      "heading": "Forbid supersedes allow",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "054",
+        "“Can’t beats Can”",
+        "054.1",
+        "Forbid supersedes allow"
+      ],
+      "text": "Cards that forbid actions or effects, as a broad method of determination, supersede cards that allow or permit that same action or effect.",
+      "tokens_hint": ["forbid", "supersede", "allow", "permit"]
+    },
+    {
+      "key": "CR-055",
+      "ref": "055",
+      "heading": "Do as much as you can",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "055",
+        "Do as much as you can"
+      ],
+      "text": "When executing card text, do as much as you can, ignoring impossible instructions.",
+      "tokens_hint": ["execute", "ignore", "impossible"]
+    },
+    {
+      "key": "CR-055.1",
+      "ref": "055.1",
+      "heading": "If all instructions are impossible",
+      "path": [
+        "000",
+        "Golden and Silver Rules",
+        "055",
+        "Do as much as you can",
+        "055.1",
+        "If all instructions are impossible"
+      ],
+      "text": "If all of a card’s instructions are impossible, it is still played and resolved, but nothing happens.",
+      "tokens_hint": ["played", "resolved", "nothing happens"]
+    },
+    {
+      "key": "CR-100",
+      "ref": "100",
+      "heading": "Game Concepts",
+      "path": ["100", "Game Concepts"],
+      "text": "Game Concepts",
+      "tokens_hint": ["game", "concepts"]
+    },
+    {
+      "key": "CR-101",
+      "ref": "101",
+      "heading": "Deck Construction",
+      "path": ["100", "Game Concepts", "101", "Deck Construction"],
+      "text": "Deck Construction",
+      "tokens_hint": ["deck", "construction"]
+    },
+    {
+      "key": "CR-102",
+      "ref": "102",
+      "heading": "Riftbound is a Trading Card Game",
+      "path": [
+        "100",
+        "Game Concepts",
+        "102",
+        "Riftbound is a Trading Card Game"
+      ],
+      "text": "Riftbound is a Trading Card Game where a player must provide their own cards to play against other players.",
+      "tokens_hint": ["trading card game", "provide", "cards"]
+    },
+    {
+      "key": "CR-103",
+      "ref": "103",
+      "heading": "What you need to play",
+      "path": ["100", "Game Concepts", "103", "What you need to play"],
+      "text": "To play Riftbound, a player must have two Decks, a Champion Legend, and a number of Battlefields determined by the Mode of Play.",
+      "tokens_hint": [
+        "two decks",
+        "champion legend",
+        "battlefields",
+        "mode of play"
+      ]
+    },
+    {
+      "key": "CR-103.1",
+      "ref": "103.1",
+      "heading": "1 Champion Legend",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.1",
+        "1 Champion Legend"
+      ],
+      "text": "1 Champion Legend",
+      "tokens_hint": ["champion legend"]
+    },
+    {
+      "key": "CR-103.1.a",
+      "ref": "103.1.a",
+      "heading": "Placed in the Legend Zone at start",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.1",
+        "1 Champion Legend",
+        "103.1.a",
+        "Placed in the Legend Zone at start"
+      ],
+      "text": "This is placed in the Legend Zone at the start of the game.",
+      "tokens_hint": ["legend zone", "start of the game"]
+    },
+    {
+      "key": "CR-103.1.b",
+      "ref": "103.1.b",
+      "heading": "Dictates Domain Identity",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.1",
+        "1 Champion Legend",
+        "103.1.b",
+        "Dictates Domain Identity"
+      ],
+      "text": "This will dictate the Domain Identity of the Main Deck.",
+      "tokens_hint": ["domain identity", "main deck"]
+    },
+    {
+      "key": "CR-103.1.b.1",
+      "ref": "103.1.b.1",
+      "heading": "Cards must abide Domain Identity",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.1",
+        "1 Champion Legend",
+        "103.1.b",
+        "Dictates Domain Identity",
+        "103.1.b.1",
+        "Cards must abide Domain Identity"
+      ],
+      "text": "Cards included in your Deck must abide by your Domain Identity.",
+      "tokens_hint": ["cards", "included", "abide"]
+    },
+    {
+      "key": "CR-103.1.b.2",
+      "ref": "103.1.b.2",
+      "heading": "Domain Identity dictated by domains of Champion Legend",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.1",
+        "1 Champion Legend",
+        "103.1.b",
+        "Dictates Domain Identity",
+        "103.1.b.2",
+        "Domain Identity dictated by domains of Champion Legend"
+      ],
+      "text": "Your deck’s Domain Identity is dictated by the domains of your Champion Legend. In the default card frame, these domains appear as symbols in the legend’s upper left corner.",
+      "tokens_hint": ["symbols", "upper left corner", "domains"]
+    },
+    {
+      "key": "CR-103.1.b.3",
+      "ref": "103.1.b.3",
+      "heading": "Single Domain permitted in corresponding identity",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.1",
+        "1 Champion Legend",
+        "103.1.b",
+        "Dictates Domain Identity",
+        "103.1.b.3",
+        "Single Domain permitted in corresponding identity"
+      ],
+      "text": "If a card has a single Domain, then that card is permitted in the Domain Identity that corresponds to the same Domain.",
+      "tokens_hint": ["single domain", "permitted"]
+    },
+    {
+      "key": "CR-103.1.b.4",
+      "ref": "103.1.b.4",
+      "heading": "Multi-Domain permitted only if identity contains all domains",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.1",
+        "1 Champion Legend",
+        "103.1.b",
+        "Dictates Domain Identity",
+        "103.1.b.4",
+        "Multi-Domain permitted only if identity contains all domains"
+      ],
+      "text": "If a card has more than one Domain, then that card is permitted only in a Domain Identity that contains all of the indicated Domains on that card.",
+      "tokens_hint": ["more than one", "contains all"]
+    },
+    {
+      "key": "CR-103.2",
+      "ref": "103.2",
+      "heading": "Main Deck (at least 40 cards)",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)"
+      ],
+      "text": "A Main Deck of at least 40 cards 1 Chosen Champion Unit Units Gear Spells",
+      "tokens_hint": ["main deck", "40", "chosen champion"]
+    },
+    {
+      "key": "CR-103.2.a",
+      "ref": "103.2.a",
+      "heading": "Chosen Champion",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.a",
+        "Chosen Champion"
+      ],
+      "text": "Chosen Champion",
+      "tokens_hint": ["chosen champion"]
+    },
+    {
+      "key": "CR-103.2.a.1",
+      "ref": "103.2.a.1",
+      "heading": "Placed in Champion Zone at start",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.a",
+        "Chosen Champion",
+        "103.2.a.1",
+        "Placed in Champion Zone at start"
+      ],
+      "text": "This will be placed in the Champion Zone at the start of the game.",
+      "tokens_hint": ["champion zone", "start of the game"]
+    },
+    {
+      "key": "CR-103.2.a.2",
+      "ref": "103.2.a.2",
+      "heading": "Must match Champion Legend tag",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.a",
+        "Chosen Champion",
+        "103.2.a.2",
+        "Must match Champion Legend tag"
+      ],
+      "text": "Must be a champion unit with a champion tag that matches the tag on your Champion Legend. Example: Loose Cannon has the tag Jinx. Therefore, a player could choose Jinx, Rebel or Jinx, Demolitionist as their Chosen Champion, because they also have the tag Jinx. Example: Tibbers has the tag Annie, but it is a signature unit, not a champion unit. It cannot be your Chosen Champion, even if your Champion Legend has the tag Annie.",
+      "tokens_hint": ["tag", "jinx", "annie", "signature unit"]
+    },
+    {
+      "key": "CR-103.2.a.3",
+      "ref": "103.2.a.3",
+      "heading": "Chosen Champion identity during gameplay",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.a",
+        "Chosen Champion",
+        "103.2.a.3",
+        "Chosen Champion identity during gameplay"
+      ],
+      "text": "A player’s Chosen Champion is both the specific card chosen for this slot during Deck Building and also any Champion Unit with the same name as the specific card selected for this specific slot during the course of play. Example: A player chose Jinx, Rebel as their Chosen Champion. One copy of Jinx, Rebel starts the game in their Chosen Champion zone. Any additional copies of Jinx, Rebel in their Main Deck, their hand, their trash, or on the board also count as their Chosen Champion for any game rules and effects that care about Chosen Champion status during the game.",
+      "tokens_hint": ["same name", "chosen champion zone", "counts as"]
+    },
+    {
+      "key": "CR-103.2.b",
+      "ref": "103.2.b",
+      "heading": "Up to 3 copies of same named card",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.b",
+        "Up to 3 copies of same named card"
+      ],
+      "text": "Your Main Deck can include up to 3 copies of the same named card.",
+      "tokens_hint": ["up to 3", "copies", "same named"]
+    },
+    {
+      "key": "CR-103.2.b.1",
+      "ref": "103.2.b.1",
+      "heading": "Includes your Chosen Champion",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.b",
+        "Up to 3 copies of same named card",
+        "103.2.b.1",
+        "Includes your Chosen Champion"
+      ],
+      "text": "This includes your Chosen Champion. Example: A deck could include Volibear, Furious as its Chosen Champion and still include 2 more copies of Volibear, Furious.",
+      "tokens_hint": ["volibear", "chosen champion", "2 more copies"]
+    },
+    {
+      "key": "CR-103.2.b.2",
+      "ref": "103.2.b.2",
+      "heading": "Different names are different cards",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.b",
+        "Up to 3 copies of same named card",
+        "103.2.b.2",
+        "Different names are different cards"
+      ],
+      "text": "Cards have different names even if they represent the same character. Example: A deck could include 3 copies of Yasuo, Remorseful and 3 copies of Yasuo, Windrider, because they have different names.",
+      "tokens_hint": ["yasuo", "different names"]
+    },
+    {
+      "key": "CR-103.2.c",
+      "ref": "103.2.c",
+      "heading": "Subject to Domain Identity",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.c",
+        "Subject to Domain Identity"
+      ],
+      "text": "Subject to Domain Identity.",
+      "tokens_hint": ["domain identity"]
+    },
+    {
+      "key": "CR-103.2.d",
+      "ref": "103.2.d",
+      "heading": "Signature card limit (3 total) with same Champion tag",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.d",
+        "Signature card limit (3 total) with same Champion tag"
+      ],
+      "text": "Your deck may only contain 3 total Signature cards that have the same Champion tag as your Champion Legend.",
+      "tokens_hint": ["signature", "3 total", "champion tag"]
+    },
+    {
+      "key": "CR-103.2.d.1",
+      "ref": "103.2.d.1",
+      "heading": "Sum total of 3 Signature cards regardless of name",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.d",
+        "Signature card limit (3 total) with same Champion tag",
+        "103.2.d.1",
+        "Sum total of 3 Signature cards regardless of name"
+      ],
+      "text": "Regardless of name, a deck may only contain a sum total of 3 Signature cards.",
+      "tokens_hint": ["regardless of name", "sum total", "3"]
+    },
+    {
+      "key": "CR-103.2.d.2",
+      "ref": "103.2.d.2",
+      "heading": "All Signature cards must match Champion Legend tag",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.d",
+        "Signature card limit (3 total) with same Champion tag",
+        "103.2.d.2",
+        "All Signature cards must match Champion Legend tag"
+      ],
+      "text": "All of the Signature cards must have the Champion tag that corresponds to the Champion Legend of the deck.",
+      "tokens_hint": ["signature", "must have", "corresponds"]
+    },
+    {
+      "key": "CR-103.2.d.3",
+      "ref": "103.2.d.3",
+      "heading": "Signature cards are not Champion units",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.d",
+        "Signature card limit (3 total) with same Champion tag",
+        "103.2.d.3",
+        "Signature cards are not Champion units"
+      ],
+      "text": "Signature cards are not Champion units and cannot be placed in the Champion Zone.",
+      "tokens_hint": ["not champion units", "cannot be placed", "champion zone"]
+    },
+    {
+      "key": "CR-103.2.e",
+      "ref": "103.2.e",
+      "heading": "Main Deck is Secret Information",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.e",
+        "Main Deck is Secret Information"
+      ],
+      "text": "During Gameplay, the Main Deck is Secret Information.",
+      "tokens_hint": ["secret information"]
+    },
+    {
+      "key": "CR-103.2.e.1",
+      "ref": "103.2.e.1",
+      "heading": "Cannot be looked through unless instructed",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.2",
+        "Main Deck (at least 40 cards)",
+        "103.2.e",
+        "Main Deck is Secret Information",
+        "103.2.e.1",
+        "Cannot be looked through unless instructed"
+      ],
+      "text": "It cannot be looked through or revealed unless instructed by a card effect.",
+      "tokens_hint": ["looked through", "revealed", "card effect"]
+    },
+    {
+      "key": "CR-103.3",
+      "ref": "103.3",
+      "heading": "Rune Deck",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.3",
+        "Rune Deck"
+      ],
+      "text": "Rune Deck",
+      "tokens_hint": ["rune deck"]
+    },
+    {
+      "key": "CR-103.3.a",
+      "ref": "103.3.a",
+      "heading": "12 Rune Cards",
+      "path": [
+        "100",
+        "Game Concepts",
+        "103",
+        "What you need to play",
+        "103.3",
+        "Rune Deck",
+        "103.3.a",
+        "12 Rune Cards"
+      ],
+      "text": "12 Rune Cards",
+      "tokens_hint": ["12", "rune cards"]
+    }
+  ]
+}
