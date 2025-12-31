@@ -1,6 +1,6 @@
 // assets/js/sw.js
 // Bump this when you change core assets or caching strategy
-const CACHE_NAME = 'rb-judge-codex-v2';
+const CACHE_NAME = 'rb-judge-codex-v2.0.1';
 
 // Resolve a relative asset path against the SW scope (important for GitHub Pages / subpaths)
 const toScopeUrl = (p) => new URL(p, self.registration.scope).toString();
