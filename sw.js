@@ -12,6 +12,8 @@ const CORE_ASSETS = [
   'view.html',
   'docs.html',
   'about.html',
+  'sw.js',
+  'manifest.webmanifest',
   'assets/css/app.css',
   'assets/js/app.js',
   'assets/js/search.js',
@@ -27,6 +29,8 @@ const CORE_ASSETS = [
   // Images used in UI
   'assets/img/logo.png',
   'assets/img/logo-icon.png',
+  'assets/img/icon-192.png',
+  'assets/img/icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {
@@ -83,8 +87,9 @@ self.addEventListener('fetch', (event) => {
         } catch (e) {
           // Fallback to cached page
           return (
-            (await caches.match(OFFLINE_FALLBACK_URL, { ignoreSearch: true })) ||
-            (await caches.match(req, { ignoreSearch: true }))
+            (await caches.match(OFFLINE_FALLBACK_URL, {
+              ignoreSearch: true,
+            })) || (await caches.match(req, { ignoreSearch: true }))
           );
         }
       })()

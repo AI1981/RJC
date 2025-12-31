@@ -10,6 +10,16 @@
       "source_name": "User-provided official extract",
       "source_url": "",
       "file": "assets/data/documents/core_rules.json"
+    },
+    {
+      "id": "TR",
+      "title": "Tournament Rules",
+      "lang": "en",
+      "version_label": "draft-import-2025-12-29",
+      "published_date": "2025-12-29",
+      "source_name": "User-provided official extract",
+      "source_url": "",
+      "file": "assets/data/documents/tr.json"
     }
   ]
 }

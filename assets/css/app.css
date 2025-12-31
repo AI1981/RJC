@@ -1,5 +1,282 @@
+:root {
+  --rb-bg-color: #023A50;
+  --rb-form-bg-color: #020A0D;
+  --rb-form-border-color: #34617481;
+  --rb-card-bg-color: #002330;
+  --rb-button-bg-color: #EC7302;
+  --rb-button-bg-hover-color: #de6b00;
+  --rb-button-border-hover-color: #de6b00;
+  --rb-accent-color: #EC7302;
+  --rb-text-color: #e0e0e0;
+  --rb-mark-color: #e6964c;
+  --rb-border-color: #474B32;
+}
+html,
+body {
+  height: 100%;
+}
 /* assets/css/app.css */
-.rule-text { white-space: pre-wrap; line-height: 1.5; }
-mark.rb-hl { padding: 0 .15em; border-radius: .2em; }
-.card-result { cursor: pointer; }
-.card-result:hover { transform: translateY(-1px); }
+body {
+  background-color: var(--rb-bg-color)!important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+span{
+    color: white!important;
+}
+/* Typography / readable rules */
+.rule-text {
+  white-space: pre-wrap;
+  line-height: 1.55;
+}
+.text-accent {
+    color: var(--rb-accent-color)!important;
+}
+.text-color{
+    color: var(--rb-text-color)!important;
+}
+/* Highlight */
+mark{
+    background-color: var(--rb-mark-color);
+    color: black;
+}
+mark.rb-hl {
+  padding: 0 0.15em;
+  border-radius: 0.2em;
+}
+.form-control{
+    background-color: var(--rb-form-bg-color)!important;
+    border: solid 1px var(--rb-form-border-color)!important;
+    color: white!important;
+}
+.form-select{
+    background-color: var(--rb-form-bg-color)!important;
+    border: solid 1px var(--rb-form-border-color)!important;
+    color: white!important;
+}
+.card{
+    background-color: var(--rb-card-bg-color)!important;
+    color: var(--rb-text-color);
+}
+.card .form-label{
+    color: white!important;
+}
+
+/* Clickable cards (reference-mode) */
+.card-result {
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.card-result:hover {
+  transform: translateY(-1px);
+}
+
+/* Generic: reduce heavy borders in nested results */
+.card.shadow-sm {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Macro / Ruleset headers */
+.rb-macro-header,
+.rb-ruleset-header {
+  user-select: none;
+}
+
+.rb-macro-header:focus-visible,
+.rb-ruleset-header:focus-visible,
+.rb-group-header:focus-visible {
+  outline: 2px solid rgba(13, 110, 253, 0.35);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+.rb-macro-header {
+  padding: 0.25rem 0;
+}
+
+.rb-ruleset-header {
+  border-radius: 0.5rem;
+  transition: background-color 120ms ease;
+}
+.rb-ruleset-header:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Root rows inside rulesets (search results) */
+.rb-root-row {
+  position: relative;
+  background-color: rgba(13, 110, 253, 0.04);
+  border-radius: 0.3rem;
+  margin-bottom: 0.2rem;
+  border: 0;
+  padding-left: 0.35rem;
+}
+
+.rb-root-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 3px;
+  border-radius: 3px;
+  background-color: var(--rb-accent-color);
+}
+
+.rb-root-row a {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.3rem;
+  transition: background-color 120ms ease;
+}
+
+.rb-root-row a:hover {
+  background-color: rgba(13, 110, 253, 0.08);
+}
+
+.badge.text-bg-light {
+  font-weight: 600;
+}
+
+.rb-group-header {
+  user-select: none;
+  border-radius: 0.5rem;
+  padding: 0.15rem 0;
+  transition: background-color 120ms ease;
+}
+.rb-group-header:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+
+/* View page: related rules list */
+#childrenRules .list-group-item {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Macro view: unified rule list (roots + children) */
+#childrenRules .rb-rule-item, #results .rb-rule-item {
+  position: relative;
+  padding-left: var(--rb-indent, 0.75rem) !important;
+}
+
+#childrenRules .rb-rule-item::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--rb-indent, 0.75rem) - 0.55rem);
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 3px;
+  border-radius: 3px;
+  background-color: var(--rb-accent-color);
+}
+
+#childrenRules .rb-rule-root {
+  background-color: rgba(13, 110, 253, 0.04);
+  border-radius: 0.35rem;
+}
+
+#childrenRules .list-group-item .text-secondary {
+  margin-bottom: 0.15rem;
+}
+
+#emptyState img {
+  display: block !important;
+  margin: 0 auto !important;
+  max-width: 180px;
+  height: auto !important;
+  opacity: 0.95;
+}
+
+/* Layout: offcanvas sidebar (all breakpoints) */
+.rb-sidebar-offcanvas {
+  width: 280px;
+}
+
+.rb-sidebar-offcanvas .list-group-item {
+  border: 0;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.rb-sidebar-offcanvas .list-group-item {
+  background-color: var(--rb-card-bg-color)!important;
+  color: white!important;
+}
+.offcanvas{
+    background-color: var(--rb-bg-color)!important;
+    color: white!important;
+}
+.offcanvas .btn-close{
+    filter: invert(1);
+}
+.breadcrumb{
+    font-size: 0.80rem;
+    color: var(--rb-text-color);
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    color: var(--rb-accent-color);
+}
+
+@media (max-width: 576px) {
+  .rule-text {
+    font-size: 0.98rem;
+  }
+}
+
+.btn-primary{
+    background-color: var(--rb-accent-color);
+    border-color: var(--rb-accent-color);
+}
+.btn-primary:hover{
+    background-color: var(--rb-button-bg-hover-color)!important;
+    border: 1px solid var(--rb-button-bg-hover-color);
+}
+.btn-outline-secondary, .btn-outline-primary{
+    color:var(--rb-accent-color);
+    border-color:var(--rb-accent-color);
+}
+.btn-outline-secondary:hover, .btn-outline-primary:hover{
+    background-color: var(--rb-accent-color);
+    color: black!important;
+    border: 1px solid var(--rb-accent-color);
+}
+/* Navbar styling */
+.navbar {
+  background-color: #111111 !important;
+}
+
+#childrenRules .list-group-item{
+    background-color: var(--rb-cardbg-color)!important;
+    border-bottom: 1px solid var(--rb-border-color)!important;
+}
+.rule-header, #ruleRef{
+    color: var(--rb-accent-color)!important;
+}
+.rule-body, #childrenTitle, #ruleTitle, .h4{
+    color: var(--rb-text-color)!important;
+}
+.rule-text{
+    color: var(--rb-text-color)!important;
+}
+/* #results .list-group-item{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: var(--rb-card-bg-color)!important;
+    border:none!important;
+} */
+
+/* Footer */
+.rb-footer {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+.rb-footer .small{
+    font-size: .75rem!important;
+}
