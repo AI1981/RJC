@@ -19,7 +19,7 @@ const CORE_ASSETS = [
   'assets/js/search.js',
   'assets/js/view.js',
   'assets/js/docs.js',
-  'assets/js/sw.js',
+  'assets/js/index.js',
 
   // Data
   'assets/data/manifest.json',
