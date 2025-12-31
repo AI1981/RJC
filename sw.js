@@ -1,6 +1,6 @@
 // assets/js/sw.js
 // Bump this when you change core assets or caching strategy
-const CACHE_NAME = 'rb-judge-codex-v1';
+const CACHE_NAME = 'rb-judge-codex-v2';
 
 // Resolve a relative asset path against the SW scope (important for GitHub Pages / subpaths)
 const toScopeUrl = (p) => new URL(p, self.registration.scope).toString();
@@ -85,11 +85,10 @@ self.addEventListener('fetch', (event) => {
           cache.put(req, res.clone());
           return res;
         } catch (e) {
-          // Fallback to cached page
+          // Offline: prefer the requested page from cache (e.g. view.html), then fallback to index
           return (
-            (await caches.match(OFFLINE_FALLBACK_URL, {
-              ignoreSearch: true,
-            })) || (await caches.match(req, { ignoreSearch: true }))
+            (await caches.match(req, { ignoreSearch: true })) ||
+            (await caches.match(OFFLINE_FALLBACK_URL, { ignoreSearch: true }))
           );
         }
       })()
