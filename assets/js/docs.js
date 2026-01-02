@@ -32,6 +32,19 @@
             <div class="small text-secondary">
               Source: ${RB.escapeHTML(d.source_name || '—')}
             </div>
+            ${
+              d.source_url
+                ? `
+              <div class="small text-secondary">
+                Official document: <a href="${RB.escapeHTML(
+                  d.source_url
+                )}" target="_blank" rel="noopener noreferrer">
+                  Open on Riot Games
+                </a>
+              </div>
+            `
+                : ''
+            }
           </div>
         </div>
       </div>
