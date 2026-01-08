@@ -200,8 +200,10 @@ mark.rb-hl {
 
 .rb-sidebar-offcanvas .list-group-item {
   border: 0;
-  border-radius: 0.5rem;
-  margin-bottom: 0.25rem;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--rb-border-color) !important;
 }
 
 .rb-sidebar-offcanvas .list-group-item {
@@ -252,7 +254,7 @@ mark.rb-hl {
 }
 
 #childrenRules .list-group-item{
-    background-color: var(--rb-cardbg-color)!important;
+    background-color: var(--rb-card-bg-color)!important;
     border-bottom: 1px solid var(--rb-border-color)!important;
 }
 .rule-header, #ruleRef{
@@ -270,6 +272,34 @@ mark.rb-hl {
     background-color: var(--rb-card-bg-color)!important;
     border:none!important;
 } */
+ .accordion,.accordion-item,.accordion-collapse,.accordion-flush,.accordion-header{
+    border:none!important;
+ }
+ .accordion, .accordion-item,.accordion-flush{
+    background-color: var(--rb-card-bg-color)!important;
+    color: var(--rb-text-color)!important;
+ }
+.accordion-button{
+    background-color: var(--rb-card-bg-color)!important;
+    color: var(--rb-text-color)!important;
+}
+.accordion-collapse{
+  background-color: var(--rb-card-bg-color)!important;
+  color: var(--rb-text-color)!important;
+}
+.accordion-body .list-group-item,.accordion-button{
+  border-top: 1px solid var(--rb-border-color)!important;
+  border-radius:0!important
+  
+}
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23EC7302'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+:focus, .accordion-button:not(.collapsed) {
+  outline: 0 !important;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+}
 
 /* Footer */
 .rb-footer {

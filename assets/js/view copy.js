@@ -6,7 +6,6 @@
   const key = RB.qs('key');
   const rootParam = RB.qs('root');
   const macroParam = RB.qs('macro');
-  const rangeParam = RB.qs('range'); // e.g. "400-406"
   const q = RB.qs('q') || '';
   const from = RB.qs('from') || 'index.html';
 
@@ -259,160 +258,6 @@
     if (found) effectiveDoc = found._doc_id;
   }
 
-  // RANGE VIEW: ?range=400-406 (shows only rules whose base ref is within the range)
-  // Note: this must run BEFORE macro/root/key views.
-  if (rangeParam) {
-    const m = String(rangeParam).trim().match(/^(\d{1,3})-(\d{1,3})$/);
-    if (!m) {
-      document.getElementById('ruleTitle').textContent = 'Invalid range';
-      document.getElementById('ruleText').textContent = '';
-      clearChildren();
-      return;
-    }
-
-    const a = parseInt(m[1], 10);
-    const b = parseInt(m[2], 10);
-    const start = Math.min(a, b);
-    const end = Math.max(a, b);
-
-    // Title block
-    const title = `${String(start).padStart(3, '0')}–${String(end).padStart(3, '0')}`;
-    document.getElementById('ruleTitle').textContent = title;
-    document.getElementById('ruleRef').textContent = `${effectiveDoc || ''} ${title}`.trim();
-    document.getElementById('ruleDoc').textContent = effectiveDoc || '';
-
-    // Breadcrumb: macro + ruleset based on range start
-    const bc = document.getElementById('breadcrumb');
-    if (bc) {
-      bc.innerHTML = '';
-      const cat = categorizeRef(String(start));
-      const add = (label) => {
-        const li = document.createElement('li');
-        li.className = 'breadcrumb-item';
-        li.textContent = label;
-        bc.appendChild(li);
-      };
-      add(`${cat.macro.id} • ${cat.macro.title}`);
-      add(`${cat.ruleset.id} • ${cat.ruleset.title}`);
-      add(`${title}`);
-    }
-
-    // Hide main text block for range view
-    document.getElementById('ruleText').innerHTML = '';
-
-    // Filter entries by base (root) number
-    const rules = INDEX
-      .filter((x) => {
-        if (x._doc_id !== effectiveDoc) return false;
-        const base = num3(String(x.ref).split('.')[0]);
-        return base >= start && base <= end;
-      })
-      .sort((a, b) => compareRefs(a.ref, b.ref));
-
-    if (!rules.length) {
-      if (childrenTitle) {
-        childrenTitle.textContent = 'Rules';
-        childrenTitle.classList.remove('d-none');
-      }
-      if (childrenRules) {
-        childrenRules.innerHTML = '';
-        const msg = document.createElement('div');
-        msg.className = 'list-group-item text-secondary';
-        msg.textContent = 'No rules found for this range.';
-        childrenRules.appendChild(msg);
-      }
-      return;
-    }
-
-    if (childrenTitle) {
-      childrenTitle.textContent = 'Rules';
-      childrenTitle.classList.remove('d-none');
-    }
-
-    if (childrenRules) {
-      childrenRules.innerHTML = '';
-
-      for (const r of rules) {
-        const depth = Math.max(0, String(r.ref || '').split('.').length - 1);
-        const pad = 0.75 + depth * 2; // rem 0,9 -> 1.5
-
-        const item = document.createElement('div');
-        item.className = 'list-group-item rb-rule-item';
-        if (depth === 0) item.classList.add('rb-rule-root');
-        item.id = `r-${String(r.ref).replace(/[^0-9a-zA-Z]+/g, '-')}`;
-        item.style.setProperty('--rb-indent', `${pad}rem`);
-
-        const refLine = `${effectiveDoc} ${r.ref}`.trim();
-
-        const oneRuleText = [
-          `${r.ref}`,
-          r.heading ? String(r.heading) : '',
-          r.text ? String(r.text) : '',
-        ]
-          .filter(Boolean)
-          .join(' ')
-          .trim();
-
-        const refRow = document.createElement('div');
-        refRow.className = 'd-flex align-items-start justify-content-between gap-2';
-
-        const refEl = document.createElement('div');
-        refEl.className = 'small rule-header fw-semibold';
-        refEl.textContent = refLine;
-
-        const copyBtn = makeCopyBtn(oneRuleText);
-
-        refRow.appendChild(refEl);
-        refRow.appendChild(copyBtn);
-        item.appendChild(refRow);
-
-        if (r.heading) {
-          const h = document.createElement('div');
-          h.className = 'fw-semibold rule-text';
-          h.textContent = String(r.heading);
-          item.appendChild(h);
-        }
-
-        if (r.text) {
-          const t = document.createElement('div');
-          t.className = 'mt-1 rule-text';
-          t.innerHTML = RB.highlightHTML(String(r.text), q);
-          item.appendChild(t);
-        }
-
-        childrenRules.appendChild(item);
-      }
-    }
-
-    // Copy buttons: copy range label / full range text
-    const copyRefBtn = document.getElementById('copyRefBtn');
-    const copyTextBtn = document.getElementById('copyTextBtn');
-
-    if (copyRefBtn) {
-      copyRefBtn.addEventListener('click', async () => {
-        const ok = await RB.copyToClipboard(`${effectiveDoc} ${title}`.trim());
-        if (ok) alert('Reference copied');
-      });
-    }
-
-    if (copyTextBtn) {
-      copyTextBtn.addEventListener('click', async () => {
-        const full = rules
-          .map((x) => {
-            const parts = [`${x.ref}`];
-            if (x.heading) parts.push(x.heading);
-            if (x.text) parts.push(x.text);
-            return parts.join(' ');
-          })
-          .join('\n');
-        const ok = await RB.copyToClipboard(full);
-        if (ok) alert('Text copied');
-      });
-    }
-
-    return;
-  }
-
   // MACRO VIEW: ?macro=100
   if (macroParam) {
     const macroId = String(macroParam).trim();
@@ -645,5 +490,4 @@
       if (ok) alert('Text copied');
     });
   }
-
 })();
