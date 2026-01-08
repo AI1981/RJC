@@ -334,7 +334,7 @@
 
       for (const r of rules) {
         const depth = Math.max(0, String(r.ref || '').split('.').length - 1);
-        const pad = 0.75 + depth * 2; // rem 0,9 -> 1.5
+        const pad = 0.75 + depth * 1.5; // rem 0,9 -> 1.5
 
         const item = document.createElement('div');
         item.className = 'list-group-item rb-rule-item';

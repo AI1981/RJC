@@ -253,7 +253,7 @@
     <footer class="rb-footer mt-5 py-4">
       <div class="container">
         <div class="text-center">
-          <span class="small text-secondary">Riftbound Judge Codex V 1.0.5</span><br>
+          <span class="small text-secondary">Riftbound Judge Codex V 1.0.6</span><br>
           <span class="small text-secondary">Riftbound Judge Codex is not affiliated with, endorsed, sponsored, or specifically approved by Riot Games Inc.</span><br>
           <span class="small text-secondary">Riftbound, and their logos are trademarks of Riot Games Inc. in the United States and other countries.</span><br>
           <span class="small text-secondary">© 2026 Riftbound Judge Codex — All rights reserved.</span>
