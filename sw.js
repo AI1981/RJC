@@ -4,7 +4,7 @@
 // to guarantee PWA clients receive updates.
 
 // Bump this when you change core assets or caching strategy
-const CACHE_NAME = 'rb-judge-codex-v1.0.6';
+const CACHE_NAME = 'rb-judge-codex-v1.0.7';
 
 // Resolve a relative asset path against the SW scope (important for GitHub Pages / subpaths)
 const toScopeUrl = (p) => new URL(p, self.registration.scope).toString();

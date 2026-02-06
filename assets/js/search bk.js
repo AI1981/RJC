@@ -99,47 +99,6 @@
     return out;
   };
 
-  // --- Match reason helpers ----------------------------------------------
-
-  const anyNeedleIn = (hay, needles) => {
-    for (const n of needles) {
-      if (n && hay.includes(n)) return true;
-    }
-    return false;
-  };
-
-  // Returns flags telling WHERE this entry matched, for UI "reason"
-  const computeMatchFlags = (e, qObj, needles, qNorm, refQuery) => {
-    const headN = normalize(e.heading);
-    const textN = normalize(e.text);
-    const refN = normalize(e.ref);
-
-    if (refQuery) {
-      // reference mode: match is driven by ref prefix, but we still can say if it also appears in heading/text
-      const refHit = refN.startsWith(qNorm);
-      const headHit = headN.includes(qNorm) || anyNeedleIn(headN, needles);
-      const textHit = textN.includes(qNorm) || anyNeedleIn(textN, needles);
-      return { refHit, headHit, textHit };
-    }
-
-    // keyword mode: AND is already enforced outside, here we just explain where it matched
-    const headHit = anyNeedleIn(headN, needles);
-    const textHit = anyNeedleIn(textN, needles);
-    const refHit = anyNeedleIn(refN, needles);
-
-    return { refHit, headHit, textHit };
-  };
-
-  const initMatchStats = () => ({
-    root_hits: 0, // matches on the root rule entry itself
-    subrule_hits: 0, // matches on children entries
-    heading: 0, // how many matching entries matched in heading
-    body: 0, // how many matching entries matched in text/body
-    ref: 0, // how many matching entries matched in reference
-  });
-
-  // -----------------------------------------------------------------------
-
   // --- Taxonomy (manual chapters): MACRO -> RULESET
   // NOTE: CR has detailed sub-rulesets; TR uses only macro buckets.
   const CR_TAXONOMY = [
@@ -435,25 +394,8 @@
           });
         }
 
-        const bucket = rootMap.get(key);
-
-        // Init match stats (once)
-        if (!bucket.match) bucket.match = initMatchStats();
-
-        // Compute "why it matched"
-        const flags = computeMatchFlags(e, qObj, needles, qNorm, false);
-
         // Count every matching entry within the family (root + children)
-        bucket.match_count += 1;
-
-        // Root vs subrule contribution
-        if (String(e.ref) === rootRef) bucket.match.root_hits += 1;
-        else bucket.match.subrule_hits += 1;
-
-        // Where it matched
-        if (flags.headHit) bucket.match.heading += 1;
-        if (flags.textHit) bucket.match.body += 1;
-        if (flags.refHit) bucket.match.ref += 1;
+        rootMap.get(key).match_count += 1;
       }
 
       // Place roots into macro->ruleset buckets
@@ -551,24 +493,7 @@
         });
       }
 
-      const bucket = rootMap.get(key);
-
-      // Init match stats (once)
-      if (!bucket.match) bucket.match = initMatchStats();
-
-      // Compute "why it matched" (ref mode)
-      const flags = computeMatchFlags(e, qObj, needles, qNorm, true);
-
-      bucket.match_count += 1;
-
-      // Root vs subrule contribution
-      if (String(e.ref) === rootRef) bucket.match.root_hits += 1;
-      else bucket.match.subrule_hits += 1;
-
-      // Where it matched
-      if (flags.headHit) bucket.match.heading += 1;
-      if (flags.textHit) bucket.match.body += 1;
-      if (flags.refHit) bucket.match.ref += 1;
+      rootMap.get(key).match_count += 1;
     }
 
     // Place roots into macro->ruleset buckets

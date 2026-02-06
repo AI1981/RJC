@@ -87,26 +87,6 @@
           return btn;
         };
 
-        const renderMatchReason = (match) => {
-          if (!match) return '';
-
-          const bits = [];
-          if (match.ref) bits.push(`🔗 ${match.ref}`);
-          if (match.heading) bits.push(`🧠 ${match.heading}`);
-          if (match.body) bits.push(`📄 ${match.body}`);
-
-          const contrib = [];
-          if (match.root_hits) contrib.push(`root ${match.root_hits}`);
-          if (match.subrule_hits) contrib.push(`subrules ${match.subrule_hits}`);
-
-          return `
-            <div class="small text-secondary mt-1 rb-match-reason">
-              <span class="me-2">${bits.join(' ') || ''}</span>
-              ${contrib.length ? `<span class="ms-1">• ${contrib.join(', ')}</span>` : ''}
-            </div>
-          `;
-        };
-
         const renderResults = (items, q) => {
           resultsEl.innerHTML = '';
 
@@ -265,7 +245,6 @@
                           <div class="fw-regular text-light">${RB.escapeHTML(
                             r.root.heading || '—'
                           )}</div>
-                          ${renderMatchReason(r.match)}
                         </div>
                         <div>
                           <span class="badge text-bg-light border text-secondary">${RB.escapeHTML(

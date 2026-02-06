@@ -310,3 +310,9 @@ mark.rb-hl {
 .rb-footer .small{
     font-size: .75rem!important;
 }
+
+/* Search: match reason line */
+.rb-match-reason {
+  opacity: 0.9;
+  letter-spacing: 0.1px;
+}
